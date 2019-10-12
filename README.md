@@ -26,6 +26,10 @@ Run program: ./app/shell-app
 
 The detailed work flow is given in the following [link](https://docs.google.com/spreadsheets/d/13WXzRSTHV0jlsC4YitLOjkog6HfLg3e6ruhls8xQrKQ/edit?ts=5d9dbd68#gid=1748360951) 
 
+## Planning and review notes
+
+The detailed notes of each sprint can be found in this [link](https://docs.google.com/document/d/1rkuHtKKTvhV5eiwX7T5SonaRDGOlHK2LOWWfs0eCQ4s/edit?ts=5da23ca7)
+
 ## Building for code coverage (for assignments beginning in Week 4)
 ```
 sudo apt-get install lcov
