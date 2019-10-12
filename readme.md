@@ -22,6 +22,10 @@ Run tests: ./test/cpp-test
 Run program: ./app/shell-app
 ```
 
+## SIP worksheet
+
+The detailed work flow is given in the following [link](https://docs.google.com/spreadsheets/d/13WXzRSTHV0jlsC4YitLOjkog6HfLg3e6ruhls8xQrKQ/edit?ts=5d9dbd68#gid=1748360951) 
+
 ## Building for code coverage (for assignments beginning in Week 4)
 ```
 sudo apt-get install lcov
@@ -53,7 +57,7 @@ cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLI
 
 ## Import
 
-Open Eclipse, go to File -> Import -> General -> Existing Projects into Workspace -> 
+Open Eclipse, go to File -> Import -> General -> Existing Projects into Workspace ->
 Select "boilerplate-eclipse" directory created previously as root directory -> Finish
 
 # Edit
@@ -77,10 +81,10 @@ select Run As -> Local C/C++ Application
 ## Debug
 
 
-1. Set breakpoint in source file (i.e. double click in the left margin on the line you want 
+1. Set breakpoint in source file (i.e. double click in the left margin on the line you want
 the program to break).
 
-2. In Eclipse, right click on the boilerplate-eclipse in Project Explorer, select Debug As -> 
+2. In Eclipse, right click on the boilerplate-eclipse in Project Explorer, select Debug As ->
 Local C/C++ Application, choose the binaries to run (e.g. shell-app).
 
 3. If prompt to "Confirm Perspective Switch", select yes.
@@ -89,10 +93,10 @@ Local C/C++ Application, choose the binaries to run (e.g. shell-app).
 
 5. Press Step Into (F5), Step Over (F6), Step Return (F7) to step/debug your program.
 
-6. Right click on the variable in editor to add watch expression to watch the variable in 
+6. Right click on the variable in editor to add watch expression to watch the variable in
 debugger window.
 
-7. Press Terminate icon to terminate debugging and press C/C++ icon to switch back to C/C++ 
+7. Press Terminate icon to terminate debugging and press C/C++ icon to switch back to C/C++
 perspetive view (or Windows->Perspective->Open Perspective->C/C++).
 
 
@@ -105,7 +109,7 @@ perspetive view (or Windows->Perspective->Open Perspective->C/C++).
     1. In Eclipse, go to Window -> Preferences -> C/C++ -> cppcheclipse.
     Set cppcheck binary path to "/usr/bin/cppcheck".
 
-    2. To run CPPCheck on a project, right click on the project name in the Project Explorer 
+    2. To run CPPCheck on a project, right click on the project name in the Project Explorer
     and choose cppcheck -> Run cppcheck.
 
 
@@ -113,10 +117,10 @@ perspetive view (or Windows->Perspective->Open Perspective->C/C++).
 
     To include and use Google C++ Style formatter in Eclipse
 
-    1. In Eclipse, go to Window -> Preferences -> C/C++ -> Code Style -> Formatter. 
+    1. In Eclipse, go to Window -> Preferences -> C/C++ -> Code Style -> Formatter.
     Import [eclipse-cpp-google-style][reference-id-for-eclipse-cpp-google-style] and apply.
 
-    2. To use Google C++ style formatter, right click on the source code or folder in 
+    2. To use Google C++ style formatter, right click on the source code or folder in
     Project Explorer and choose Source -> Format
 
 [reference-id-for-eclipse-cpp-google-style]: https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-cpp-google-style.xml
