@@ -1,18 +1,15 @@
 # C++ Boilerplate
 [![Build Status](https://travis-ci.org/Ytodi31/Human_Obstacle_Detection.svg?branch=master)](https://travis-ci.org/Ytodi31/Human_Obstacle_Detection)
 [![Coverage Status](https://coveralls.io/repos/github/Ytodi31/Human_Obstacle_Detection/badge.svg?branch=master)](https://coveralls.io/github/Ytodi31/Human_Obstacle_Detection?branch=master)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 ---
 
 ## Overview
-
-Simple starter C++ project with:
-
-- cmake
-- googletest
+Robots can travel through populated environments like curbs and streets for last mile delivery. One of the most frequently encountered obstacles would be humans while travelling. For this purpose, this perception software component can be used to detect human obstacles in an outdoor environment images from a camera mounted on the robot.
 
 ## Standard install via command-line
 ```
-git clone --recursive https://github.com/dpiet/cpp-boilerplate
+git clone --recursive https://github.com/Ytodi31/Human_Obstacle_Detection
 cd <path to repository>
 mkdir build
 cd build
@@ -22,7 +19,7 @@ Run tests: ./test/cpp-test
 Run program: ./app/shell-app
 ```
 
-## SIP worksheet
+## AIP worksheet
 
 The detailed work flow is given in the following [link](https://docs.google.com/spreadsheets/d/13WXzRSTHV0jlsC4YitLOjkog6HfLg3e6ruhls8xQrKQ/edit?ts=5d9dbd68#gid=1748360951) 
 
@@ -59,10 +56,6 @@ cd boilerplate-eclipse
 cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLIPSE_VERSION=4.7.0 -D CMAKE_CXX_COMPILER_ARG1=-std=c++14 ../cpp-boilerplate/
 ```
 
-## Import
-
-Open Eclipse, go to File -> Import -> General -> Existing Projects into Workspace ->
-Select "boilerplate-eclipse" directory created previously as root directory -> Finish
 
 # Edit
 
@@ -103,32 +96,3 @@ debugger window.
 7. Press Terminate icon to terminate debugging and press C/C++ icon to switch back to C/C++
 perspetive view (or Windows->Perspective->Open Perspective->C/C++).
 
-
-## Plugins
-
-- CppChEclipse
-
-    To install and run cppcheck in Eclipse
-
-    1. In Eclipse, go to Window -> Preferences -> C/C++ -> cppcheclipse.
-    Set cppcheck binary path to "/usr/bin/cppcheck".
-
-    2. To run CPPCheck on a project, right click on the project name in the Project Explorer
-    and choose cppcheck -> Run cppcheck.
-
-
-- Google C++ Sytle
-
-    To include and use Google C++ Style formatter in Eclipse
-
-    1. In Eclipse, go to Window -> Preferences -> C/C++ -> Code Style -> Formatter.
-    Import [eclipse-cpp-google-style][reference-id-for-eclipse-cpp-google-style] and apply.
-
-    2. To use Google C++ style formatter, right click on the source code or folder in
-    Project Explorer and choose Source -> Format
-
-[reference-id-for-eclipse-cpp-google-style]: https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-cpp-google-style.xml
-
-- Git
-
-    It is possible to manage version control through Eclipse and the git plugin, but it typically requires creating another project. If you're interested in this, try it out yourself and contact me on Canvas.
