@@ -1,8 +1,10 @@
 #include <iostream>
-#include <lib.hpp>
 
+#include <ImageReaderHelper.hpp>
 int main()
 {
-    dummy();
+    std::cout << "Test, Hi!" << std::endl;
+    ImageReaderHelper test1;
+    test1.readCameraImg();
     return 0;
 }
