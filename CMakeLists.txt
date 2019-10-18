@@ -1,5 +1,9 @@
-cmake_minimum_required(VERSION 3.2.1)
-project (scratch)
+#cmake needs this line
+cmake_minimum_required(VERSION 3.1)
+
+# Enable C++11
+#set(CMAKE_CXX_STANDARD 11)
+
 
 # Add project cmake modules to path.
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake)
@@ -20,10 +24,40 @@ else()
     set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wpedantic -g")
 endif()
 
+
+SET(CMAKE_CXX_FLAGS "-DENABLE_PRECOMPILED_HEADERS=OFF")
+
+# Define project name
+project(scratch)
+
+# Find OpenCV, you may need to set OpenCV_DIR variable
+# to the absolute path to the directory containing OpenCVConfig.cmake file
+# via the command line or GUI
+find_package(OpenCV REQUIRED)
+
+# If the package has been found, several variables will
+# be set, you can find the full list with descriptions
+# in the OpenCVConfig.cmake file.
+# Print some message showing some of them
+message(STATUS "OpenCV library status:")
+message(STATUS "    config: ${OpenCV_DIR}")
+message(STATUS "    version: ${OpenCV_VERSION}")
+message(STATUS "    libraries: ${OpenCV_LIBS}")
+message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
+
+
 include(CMakeToolsHelpers OPTIONAL)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 14)
-
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 add_subdirectory(app)
 add_subdirectory(test)
 add_subdirectory(vendor/googletest/googletest)
+
+
+# Declare the executable target built from your sources
+#add_executable(opencv_example HelloWorldOpenCV.cpp)
+
+# Link your application with OpenCV libraries
+#target_link_libraries(opencv_example LINK_PRIVATE ${OpenCV_LIBS})
+
