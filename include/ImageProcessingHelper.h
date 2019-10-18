@@ -19,17 +19,15 @@
 
 #include <string>
 #include <vector>
-#include <opencv2/core/core.hpp>
-#include <opencv2/opencv.hpp>
-#include <opencv2/highgui/highgui.hpp>
+#include <../include/opencv2/core/core.hpp>
+#include <../include/opencv2/opencv.hpp>
+#include <../include/opencv2/highgui/highgui.hpp>
 
 /**
  * @brief ImageProcessingHelper class pre-processes images for training
  */
 class ImageProcessingHelper {
  public:
-  ImageProcessingHelper();
-  ~ImageProcessingHelper();
 
   /**
    * @brief frameSize,variable storing the image size in coordinates
@@ -46,21 +44,21 @@ class ImageProcessingHelper {
     * @param Matrix, containing input image
     * @return Matrix, containing output resized image
     */
-  cv::Mat ResizeImg(cv::Mat);
+  cv::Mat ResizeImg();
 
   /**
     * @brief DenoiseImg, denoising image using camera calibration parameters
     * @param none
     * @return Matrix, containing output denoised image
     */
-  cv::Mat DenoiseImg(cv::Mat);
+  cv::Mat DenoiseImg();
 
   /**
     * @brief ProcessImg,process image for training
     * @param none
     * @return Matrix, containing output processed image
     */
-  cv::Mat ProcessImg(cv::Mat);
+  cv::Mat ProcessImg();
 
 };
 

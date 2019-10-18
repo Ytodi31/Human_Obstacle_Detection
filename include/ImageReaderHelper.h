@@ -19,28 +19,26 @@
 
 #include <string>
 #include <vector>
-#include <opencv2/core/core.hpp>
-#include <opencv2/opencv.hpp>
-#include <opencv2/highgui/highgui.hpp>
+#include <../include/opencv2/core/core.hpp>
+#include <../include/opencv2/opencv.hpp>
+#include <../include/opencv2/highgui/highgui.hpp>
 
 /**
  * @brief ImageReaderHelper class reading of images from source directory
  */
 class ImageReaderHelper {
  public:
-  ImageReaderHelper();
-  ~ImageReaderHelper();
 
   /**
    * @brief cameraImgPath, variable stores the directory of source of an image
    */
-  std::string cameraImgPath;
+ static std::string cameraImgPath;
 
   /**
    * @brief trainingImgsDir,variable stores the directory of source of training
    *   image
    */
-  std::string trainingImgsDir;
+  static cv::String trainingImgsDir;
 
   /**
     * @brief ReadCameraImg, reads an image
@@ -54,7 +52,7 @@ class ImageReaderHelper {
     * @param none
     * @return vector of Matrices, containing images
     */
-  std::vector<cv::Mat> ReadTrainingImgs();
+  std::vector< cv::Mat>  ReadTrainingImgs();
 
 };
 

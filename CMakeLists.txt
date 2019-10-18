@@ -12,7 +12,7 @@ if (COVERAGE)
     set(LCOV_REMOVE_EXTRA "'vendor/*'")
     setup_target_for_coverage(code_coverage test/cpp-test coverage)
     set(COVERAGE_SRCS app/main.cpp include/ImageReaderHelper.hpp 
-    							include/ImageProcessingHelper.hpp)
+    							 include/ImageProcessingHelper.hpp)
 
 
     SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")

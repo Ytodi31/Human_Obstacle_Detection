@@ -14,8 +14,12 @@
  * @date 10-15-2019
  */
 
-#include <ImageReaderHelper.hpp>
+#include "../include/ImageReaderHelper.h"
 
+std::string ImageReaderHelper::cameraImgPath = "/home/ytodi31/INRIAPerson/"
+    "crop001012.png";
+cv::String ImageReaderHelper::trainingImgsDir = "/home/ytodi31/INRIAPerson/"
+    "train_64x128_H96/pos/*.png";
 /**
  * @brief ReadCameraImg,
  * @param
@@ -23,9 +27,10 @@
  */
 cv::Mat ImageReaderHelper::ReadCameraImg() {
   cv::Mat image;
-  image = cv::imread(ImageReaderHeper::cameraImgPath, CV_LOAD_IMAGE_COLOR);
-  cv::imshow("test", image);
+  image = cv::imread(cameraImgPath);
+  cv::imshow("Test image for pipeline", image);
   cv::waitKey(0);
+  return image;
 }
 
 /**
@@ -33,6 +38,15 @@ cv::Mat ImageReaderHelper::ReadCameraImg() {
  * @param
  * @return
  */
-std::vector<cv::Mat>  ImageReaderHelper::ReadTrainingImgs() {
-
+std::vector< cv::Mat>  ImageReaderHelper::ReadTrainingImgs() {
+  std::vector <cv::Mat> trainingImages;
+  std::vector <cv::String> imageNames;
+  cv::glob(trainingImgsDir, imageNames);
+  for (size_t i = 0; i< imageNames.size(); i++ ) {
+      cv::Mat image = cv::imread(imageNames[i]);
+      trainingImages.push_back(image);
+    }
+  std::cout << trainingImages.size() << std::endl;
+  return trainingImages;
 }
+

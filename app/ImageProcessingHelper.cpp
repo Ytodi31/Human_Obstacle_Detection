@@ -14,16 +14,7 @@
  * @date 10-15-2019
  */
 
-#include "ImageProcessingHelper.hpp"
-
-ImageProcessingHelper::ImageProcessingHelper() {
-  // TODO Auto-generated constructor stub
-
-}
-
-ImageProcessingHelper::~ImageProcessingHelper() {
-  // TODO Auto-generated destructor stub
-}
+#include "../include/ImageProcessingHelper.h"
 
 /**
  * @brief ResizeImg,
@@ -31,8 +22,8 @@ ImageProcessingHelper::~ImageProcessingHelper() {
  * @return
  */
 cv::Mat ImageProcessingHelper::ResizeImg() {
-
-  return;
+  cv:: Mat image = cv::Mat::zeros(480, 640, CV_8UC1);
+  return image;
 }
 
 /**
@@ -41,8 +32,8 @@ cv::Mat ImageProcessingHelper::ResizeImg() {
  * @return
  */
 cv::Mat ImageProcessingHelper::DenoiseImg() {
-
-  return;
+  cv:: Mat image = cv::Mat::zeros(480, 640, CV_8UC1);
+  return image;
 }
 
 /**
@@ -51,6 +42,6 @@ cv::Mat ImageProcessingHelper::DenoiseImg() {
  * @return
  */
 cv::Mat ImageProcessingHelper::ProcessImg() {
-
-  return;
+  cv:: Mat image = cv::Mat::zeros(480, 640, CV_8UC1);
+  return image;
 }
