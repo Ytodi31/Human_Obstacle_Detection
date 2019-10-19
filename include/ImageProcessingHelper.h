@@ -19,6 +19,13 @@
 
 #include <string>
 #include <vector>
+#include <typeinfo>
+#include <iostream>
+#include <array>
+#include <sstream>
+#include <fstream>
+#include <ostream>
+#include <algorithm>
 #include <../include/opencv2/core/core.hpp>
 #include <../include/opencv2/opencv.hpp>
 #include <../include/opencv2/highgui/highgui.hpp>
@@ -29,22 +36,14 @@
 class ImageProcessingHelper {
  public:
 
-  /**
-   * @brief frameSize,variable storing the image size in coordinates
-   */
-  cv::Rect frameSize;
+  static std::vector<cv::Mat> roiTraining;
 
   /**
    * @brief localImage,variable storing the image in matrix
    */
-  cv::Mat localImage;
+  static cv::Mat localImage;
 
-  /**
-    * @brief ResizeImg, resizing image to a set size
-    * @param Matrix, containing input image
-    * @return Matrix, containing output resized image
-    */
-  cv::Mat ResizeImg();
+  void RegionInterest();
 
   /**
     * @brief DenoiseImg, denoising image using camera calibration parameters

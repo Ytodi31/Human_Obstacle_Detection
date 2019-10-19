@@ -16,10 +16,13 @@
 
 #include "../include/ImageReaderHelper.h"
 
-std::string ImageReaderHelper::cameraImgPath = "/home/ytodi31/INRIAPerson/"
-    "crop001012.png";
+std::string ImageReaderHelper::cameraImgPath = "/home/ytodi31/INRIAPerson/Train"
+"/pos/crop001012.png";
 cv::String ImageReaderHelper::trainingImgsDir = "/home/ytodi31/INRIAPerson/"
-    "train_64x128_H96/pos/*.png";
+    "Train/pos/*.png";
+    std::vector <cv::Mat> trainingImages;
+    std::vector <cv::String> imageLabels;
+    std::vector <cv::String> textFile;
 /**
  * @brief ReadCameraImg,
  * @param
@@ -38,15 +41,14 @@ cv::Mat ImageReaderHelper::ReadCameraImg() {
  * @param
  * @return
  */
-std::vector< cv::Mat>  ImageReaderHelper::ReadTrainingImgs() {
-  std::vector <cv::Mat> trainingImages;
-  std::vector <cv::String> imageNames;
-  cv::glob(trainingImgsDir, imageNames);
-  for (size_t i = 0; i< imageNames.size(); i++ ) {
-      cv::Mat image = cv::imread(imageNames[i]);
+std::vector <cv::Mat> ImageReaderHelper::ReadTrainingImgs() {
+  cv::glob(trainingImgsDir, imageLabels);
+  for (size_t i = 0; i<imageLabels.size() ; i++ ) {
+      cv::Mat image = cv::imread(imageLabels[i]);
       trainingImages.push_back(image);
+      cv::String newfilename = imageLabels[i].substr(0,
+        imageLabels[i].find('.'))+ ".txt";
+      textFile.push_back(newfilename);
     }
-  std::cout << trainingImages.size() << std::endl;
   return trainingImages;
 }
-

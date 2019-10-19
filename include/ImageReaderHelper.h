@@ -19,6 +19,7 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
 #include <../include/opencv2/core/core.hpp>
 #include <../include/opencv2/opencv.hpp>
 #include <../include/opencv2/highgui/highgui.hpp>
@@ -39,6 +40,20 @@ class ImageReaderHelper {
    *   image
    */
   static cv::String trainingImgsDir;
+  /**
+   * @brief 
+   */
+  std::vector <cv::Mat> trainingImages;
+
+  /**
+   * @brief
+   */
+  std::vector <cv::String> imageLabels;
+
+  /**
+   * @brief
+   */
+  std::vector <cv::String> textFile;
 
   /**
     * @brief ReadCameraImg, reads an image
