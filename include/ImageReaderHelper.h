@@ -49,7 +49,7 @@ class ImageReaderHelper {
     * @param none
     * @return vector of Matrices, containing images
     */
-  std::vector< cv::Mat>  ReadImages(cv::String);
+  void ReadImages(cv::String);
 };
 
 #endif /* INCLUDE_IMAGEREADERHELPER_HPP_ */

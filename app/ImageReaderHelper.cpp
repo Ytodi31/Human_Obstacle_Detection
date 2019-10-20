@@ -14,7 +14,7 @@
  * @date 10-15-2019
  */
 
-#include "../include/ImageReaderHelper.h"
+#include <../include/ImageReaderHelper.h>
     std::vector <cv::Mat> classifierImages;
     std::vector <cv::String> imageLabels;
     std::vector <cv::String> textFile;
@@ -24,7 +24,7 @@
  * @param
  * @return
  */
-std::vector <cv::Mat> ImageReaderHelper::ReadImages(cv::String ImgsDir) {
+void ImageReaderHelper::ReadImages(cv::String ImgsDir) {
   cv::glob(ImgsDir, imageLabels);
   for (size_t i = 0; i<imageLabels.size() ; i++ ) {
       cv::Mat image = cv::imread(imageLabels[i]);
@@ -33,5 +33,4 @@ std::vector <cv::Mat> ImageReaderHelper::ReadImages(cv::String ImgsDir) {
         imageLabels[i].find('.'))+ ".txt";
       textFile.push_back(newfilename);
     }
-  return classifierImages;
 }
