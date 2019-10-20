@@ -22,13 +22,18 @@ ImageReaderHelper imgReadHelp;
 cv::Mat ImageProcessingHelper::localImage;
 std::vector<cv::Mat> ImageProcessingHelper::roiTraining;
 
+cv::Mat ImageProcessingHelper::ReSizeImg(cv::Mat image) {
+  cv::resize(image, image, cv::Size(64,128));
+  return image;
+}
+
 /**
  * @brief ResizeImg,
  * @param
  * @return
  */
-void ImageProcessingHelper::RegionInterest() {
-  std::vector< cv::Mat>trainingImages = imgReadHelp.ReadTrainingImgs();
+void ImageProcessingHelper::RegionInterest(cv::String path) {
+  std::vector< cv::Mat>trainingImages = imgReadHelp.ReadImages(path);
   std::string name = "Center point on object";
   std::array <char, 5> text = {"(),"};
   std::vector <std::string> deleteline{"Bounding", "box", "for", "object", "1",
@@ -83,19 +88,14 @@ void ImageProcessingHelper::RegionInterest() {
        box = cv::Rect(boxCoordinates.at(i).at(0), boxCoordinates.at(i).at(1),
                       boxCoordinates.at(i).at(2),boxCoordinates.at(i).at(3));
        croppedImage = localImage(box);
-       roiTraining.push_back(croppedImage);
+       roiTraining.push_back(ReSizeImg(croppedImage));
     	}
       file.close();
     }
     a = a + 1;
   }
-  std::cout << roiTraining.size() << std::endl;
-  for (unsigned int i = 0; i<roiTraining.size(); i++)
-  {
-    cv::imshow("Cropped", roiTraining[i]);
-    cv::waitKey(0);
-  }
 }
+
 
 /**
  * @brief DenoiseImg,

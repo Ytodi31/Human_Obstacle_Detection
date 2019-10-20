@@ -43,7 +43,9 @@ class ImageProcessingHelper {
    */
   static cv::Mat localImage;
 
-  void RegionInterest();
+  void RegionInterest(cv::String);
+
+  cv::Mat ReSizeImg(cv::Mat image);
 
   /**
     * @brief DenoiseImg, denoising image using camera calibration parameters

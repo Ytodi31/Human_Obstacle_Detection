@@ -15,40 +15,23 @@
  */
 
 #include "../include/ImageReaderHelper.h"
-
-std::string ImageReaderHelper::cameraImgPath = "/home/ytodi31/INRIAPerson/Train"
-"/pos/crop001012.png";
-cv::String ImageReaderHelper::trainingImgsDir = "/home/ytodi31/INRIAPerson/"
-    "Train/pos/*.png";
-    std::vector <cv::Mat> trainingImages;
+    std::vector <cv::Mat> classifierImages;
     std::vector <cv::String> imageLabels;
     std::vector <cv::String> textFile;
-/**
- * @brief ReadCameraImg,
- * @param
- * @return
- */
-cv::Mat ImageReaderHelper::ReadCameraImg() {
-  cv::Mat image;
-  image = cv::imread(cameraImgPath);
-  cv::imshow("Test image for pipeline", image);
-  cv::waitKey(0);
-  return image;
-}
 
 /**
  * @brief ReadTrainingImgs,
  * @param
  * @return
  */
-std::vector <cv::Mat> ImageReaderHelper::ReadTrainingImgs() {
-  cv::glob(trainingImgsDir, imageLabels);
+std::vector <cv::Mat> ImageReaderHelper::ReadImages(cv::String ImgsDir) {
+  cv::glob(ImgsDir, imageLabels);
   for (size_t i = 0; i<imageLabels.size() ; i++ ) {
       cv::Mat image = cv::imread(imageLabels[i]);
-      trainingImages.push_back(image);
+      classifierImages.push_back(image);
       cv::String newfilename = imageLabels[i].substr(0,
         imageLabels[i].find('.'))+ ".txt";
       textFile.push_back(newfilename);
     }
-  return trainingImages;
+  return classifierImages;
 }

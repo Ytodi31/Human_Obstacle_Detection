@@ -29,21 +29,10 @@
  */
 class ImageReaderHelper {
  public:
-
   /**
-   * @brief cameraImgPath, variable stores the directory of source of an image
+   * @brief
    */
- static std::string cameraImgPath;
-
-  /**
-   * @brief trainingImgsDir,variable stores the directory of source of training
-   *   image
-   */
-  static cv::String trainingImgsDir;
-  /**
-   * @brief 
-   */
-  std::vector <cv::Mat> trainingImages;
+  std::vector <cv::Mat> classifierImages;
 
   /**
    * @brief
@@ -56,19 +45,11 @@ class ImageReaderHelper {
   std::vector <cv::String> textFile;
 
   /**
-    * @brief ReadCameraImg, reads an image
-    * @param none
-    * @return Matrix data type, containing an image
-    */
-  cv::Mat ReadCameraImg();
-
-  /**
     * @brief ReadTrainingImgs, reads the training set of images
     * @param none
     * @return vector of Matrices, containing images
     */
-  std::vector< cv::Mat>  ReadTrainingImgs();
-
+  std::vector< cv::Mat>  ReadImages(cv::String);
 };
 
 #endif /* INCLUDE_IMAGEREADERHELPER_HPP_ */
