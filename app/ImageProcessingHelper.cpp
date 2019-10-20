@@ -33,7 +33,8 @@ cv::Mat ImageProcessingHelper::ReSizeImg(cv::Mat image) {
  * @return
  */
 void ImageProcessingHelper::RegionInterest(cv::String path) {
-  std::vector< cv::Mat>trainingImages = imgReadHelp.ReadImages(path);
+  imgReadHelp.ReadImages(path);
+  std::vector< cv::Mat>trainingImages = imgReadHelp.classifierImages;
   std::string name = "Center point on object";
   std::array <char, 5> text = {"(),"};
   std::vector <std::string> deleteline{"Bounding", "box", "for", "object", "1",
