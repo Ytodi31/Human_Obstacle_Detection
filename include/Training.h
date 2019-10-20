@@ -27,7 +27,7 @@
 
 class Training: public Classifier {
 public:
-  
+
   /**
     * @brief Initializes the svm parameters
     * @param none
