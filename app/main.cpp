@@ -15,9 +15,6 @@
  */
 
 #include <HumanDetection.h>
-#include <Classifier.h>
-#include <Training.h>
-#include <Testing.h>
 
 /**
  * @brief Main function: Two arrays and two variables are initialized according to the problem following the c++ 11/14 style guides.
@@ -27,11 +24,7 @@
  * @return integer 0
  */
 int main() {
-  // HumanDetect HD;
-  // HD.ImageProcessingHelperClass();
-  Training SVMClassifier;
-  SVMClassifier.getTrainClassifier();
-  Testing tester;
-  tester.prediction();
+	HumanDetect HD;
+	HD.callAllClass();
   return 0;
 }
