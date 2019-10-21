@@ -33,6 +33,6 @@
   image = imgProcHelp.ResizeImg(image);
   image = imgProcHelp.ProcessImg(image);
   cv::imshow("image", image);
-  cv::waitKey(0);
+  cv::waitKey(200);
   cv::destroyAllWindows();
  }

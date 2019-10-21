@@ -41,6 +41,6 @@ void Testing::prediction() {
     rectangle(image, j, Scalar(0, 255, 0), 2);
   }
   imshow( "testing trained detector on negative images", image);
-  waitKey(0);
+  waitKey(200);
   destroyAllWindows();
 }
