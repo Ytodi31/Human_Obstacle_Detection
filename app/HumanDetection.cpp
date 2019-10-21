@@ -21,9 +21,9 @@
  * @param none
  * @return none
  */
- void HumanDetect::callAllClass() {
+void HumanDetect::callAllClass() {
   Training SVMClassifier;
   Testing tester;
- 	SVMClassifier.getTrainClassifier();
- 	tester.prediction();
- }
+  SVMClassifier.getTrainClassifier();
+  tester.prediction();
+}

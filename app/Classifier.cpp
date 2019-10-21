@@ -31,9 +31,10 @@ cv::Ptr<cv::ml::SVM> Classifier::classifier = cv::ml::SVM::create();
  */
 void Classifier::setClassifier() {
   // Sets the SVM parameters
-  classifier->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER + cv::TermCriteria::EPS, 1000, 1e-3));
+  classifier->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER
+                                    + cv::TermCriteria::EPS, 1000, 1e-3));
   classifier->setKernel(cv::ml::SVM::LINEAR);
-  classifier->setNu( 0.5 );
+  classifier->setNu(0.5);
   classifier->setType(cv::ml::SVM::ONE_CLASS);
   cout << "Class Train has been Initialized" << endl;
 }
@@ -52,6 +53,6 @@ std::vector <float> Classifier::getHogDescriptors() {
   // vector to store the hog descriptors
   std::vector <float> hogFeatures(svm.cols + 1);
   memcpy(&hogFeatures[0], svm.ptr(), svm.cols*sizeof(hogFeatures[0]));
-  hogFeatures[svm.cols] = (float)-rho;
+  hogFeatures[svm.cols] = static_cast<float>-rho;
   return hogFeatures;
 }

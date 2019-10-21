@@ -16,8 +16,6 @@
 #include <Classifier.h>
 #include <Testing.h>
 
-using namespace cv;
-
 void Testing::prediction() {
   // Creating a HOG descriptor variable
   cv::HOGDescriptor hogtest;
@@ -38,9 +36,9 @@ void Testing::prediction() {
 
   // Here a bounding box is being created around the Detected human
   for (auto j : detections) {
-    rectangle(image, j, Scalar(0, 255, 0), 2);
+    cv::rectangle(image, j, cv::Scalar(0, 255, 0), 2);
   }
-  imshow( "testing trained detector on negative images", image);
-  waitKey(200);
-  destroyAllWindows();
+  cv::imshow("image", image);
+  cv::waitKey(200);
+  cv::qdestroyAllWindows();
 }

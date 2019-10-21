@@ -103,19 +103,16 @@ void Training::getTrainClassifier() {
       transpose(features[i], temp);
       // Adding it to Train matrix
       temp.copyTo(trainMat.row(static_cast<int>(i)));
-    }
-    // If it is in the right format the directly add to Train matrix
-    else if (features[i].rows == 1) {
+      // If it is in the right format the directly add to Train matrix
+    } else if (features[i].rows == 1) {
       features[i].copyTo(trainMat.row(static_cast<int>(i)));
     }
     // Used to acces the index of features vector
     i = i + 1;
   }
 
-
   std::cout << "Training SVM Classifier" << std::endl;
   // SVM function to train the classifier
   classifier->train(trainMat, cv::ml::ROW_SAMPLE, cv::Mat(labels));
   std::cout << "Training Finshed" << std::endl;
-
 }

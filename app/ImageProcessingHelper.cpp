@@ -47,7 +47,7 @@ void ImageProcessingHelper::RegionInterest(cv::String path) {
   std::array <char, 5> text = {"(),"};
   // Deleting unwanted text from textfile to access annotations for ROI
   std::vector <std::string> deleteline{"Bounding", "box", "for", "object", "1",
-  "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12", "13", "14", "15",
+  "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15",
   "(Xmin,", "Ymin)", "-", "(Xmax," , "Ymax)", ",",
   ":", "\"PASperson\""};
   // variable to access address to modify values, accomodation for using

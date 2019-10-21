@@ -24,7 +24,7 @@
  * @return integer 0
  */
 int main() {
-	HumanDetect HD;
-	HD.callAllClass();
+  HumanDetect HD;
+  HD.callAllClass();
   return 0;
 }
