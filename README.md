@@ -4,28 +4,49 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 ---
 
-## Overview
+## Overview/Purpose
 Robots can travel through populated environments like curbs and streets for last mile delivery. One of the most frequently encountered obstacles would be humans while travelling. For this purpose, this perception software component can be used to detect human obstacles in an outdoor environment images from a camera mounted on the robot.
 
-## Standard install via command-line
-```
-git clone --recursive https://github.com/Ytodi31/Human_Obstacle_Detection
-cd <path to repository>
-mkdir build
-cd build
-cmake ..
-make
-Run tests: ./test/cpp-test
-Run program: ./app/shell-app
-```
+The perception module comprises of following sub-modules: <br/>
+•	Human Detection Module: Main module that drives the dectection algorithm Classifiers <br/>
+•	Image-processing module:  In this module we load all the images of for training the classifier and get it in the appropriate size we also perform grey-scale conversion. <br/>
+•	Feature extraction module: Extraction of features using HOG features algorithm implemented using OpenCV Library <br/>
+•	Training module: Training the data using Support Vector Machines to build a classifier <br/>
+•	Testing module: The trained classifier will be validated using n-fold cross validation
+
+
+## AIP Development Team
+* Yashaarth Todi is a Robotics graduate student
+* Chinmay Joshi is a Robotics Graduate student with a passion for Robotics, Computer Vision, Machine Learning, Embedded Systems. Loves DIY projects.
+* Sandra Tinta is new to the Robotics field.  She currenlty holds an M.S. in Computer Science and most of her professional career has been centered  on development, design, testing, performance assesment of non-commercial wireless communications protocols.
 
 ## AIP worksheet
 
 The detailed work flow is given in the following [link](https://docs.google.com/spreadsheets/d/13WXzRSTHV0jlsC4YitLOjkog6HfLg3e6ruhls8xQrKQ/edit?ts=5d9dbd68#gid=1748360951)
 
-## Planning and review notes
+## AIP Planning and Review notes
 
 The detailed notes of each sprint can be found in this [link](https://docs.google.com/document/d/1rkuHtKKTvhV5eiwX7T5SonaRDGOlHK2LOWWfs0eCQ4s/edit?ts=5da23ca7)
+
+## Results
+- cppcheck, cplint output text file can be found resource folder
+
+## License
+
+
+```
+BSD 3-Clause License
+Copyright (c) 2019, Yashaarth Todi
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
+
 
 ## Installing Dependencies
 
@@ -93,62 +114,32 @@ make code_coverage
 ```
 This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.
 
-## Working with Eclipse IDE ##
+## Known Issues/Bugs
 
-## Installation
+- While installing OpenCV libraries there can be a conflict of certain libraries being already installed because of the same
+- The module heaviliy relies on OpenCV libraries.
+- The module currently doesn't use calibration data
 
-In your Eclipse workspace directory (or create a new one), checkout the repo (and submodules)
+
+## Running the code
 ```
-mkdir -p ~/workspace
-cd ~/workspace
-git clone --recursive https://github.com/dpiet/cpp-boilerplate
+git clone --recursive https://github.com/Ytodi31/Human_Obstacle_Detection
+cd <path to repository>
+mkdir build
+cd build
+cmake ..
+make
+Run tests: ./test/cpp-test
+Run program: ./app/shell-app
 ```
 
-In your work directory, use cmake to create an Eclipse project for an [out-of-source build] of cpp-boilerplate
-
+##Doxygen Documentation
+Installing doxygen:
 ```
-cd ~/workspace
-mkdir -p boilerplate-eclipse
-cd boilerplate-eclipse
-cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLIPSE_VERSION=4.7.0 -D CMAKE_CXX_COMPILER_ARG1=-std=c++14 ../cpp-boilerplate/
+sudo apt-get install doxygen
 ```
-
-
-# Edit
-
-Source files may be edited under the "[Source Directory]" label in the Project Explorer.
-
-
-## Build
-
-To build the project, in Eclipse, unfold boilerplate-eclipse project in Project Explorer,
-unfold Build Targets, double click on "all" to build all projects.
-
-## Run
-
-1. In Eclipse, right click on the boilerplate-eclipse in Project Explorer,
-select Run As -> Local C/C++ Application
-
-2. Choose the binaries to run (e.g. shell-app, cpp-test for unit testing)
-
-
-## Debug
-
-
-1. Set breakpoint in source file (i.e. double click in the left margin on the line you want
-the program to break).
-
-2. In Eclipse, right click on the boilerplate-eclipse in Project Explorer, select Debug As ->
-Local C/C++ Application, choose the binaries to run (e.g. shell-app).
-
-3. If prompt to "Confirm Perspective Switch", select yes.
-
-4. Program will break at the breakpoint you set.
-
-5. Press Step Into (F5), Step Over (F6), Step Return (F7) to step/debug your program.
-
-6. Right click on the variable in editor to add watch expression to watch the variable in
-debugger window.
-
-7. Press Terminate icon to terminate debugging and press C/C++ icon to switch back to C/C++
-perspetive view (or Windows->Perspective->Open Perspective->C/C++).
+Run doxygen inside doc/:
+Installing doxygen:
+```
+doxygen Human_Obstacle_Detection.doxyfile
+```
