@@ -13,7 +13,7 @@ if (COVERAGE)
     set(COVERAGE_SRCS app/main.cpp app/ImageProcessingHelper.cpp
     app/ImageReaderHelper.cpp app/Classifier.cpp app/Training.cpp
     app/Testing.cpp app/HumanDetection.cpp
-    include/ImageReaderHelper.h include/ImageProcessingHelper.h 
+    include/ImageReaderHelper.h include/ImageProcessingHelper.h
     include/Training.h include/Classifier.h include/Testing.h include/HumanDetection.h)
 
 

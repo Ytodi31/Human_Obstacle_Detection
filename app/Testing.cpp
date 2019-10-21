@@ -22,7 +22,7 @@ void Testing::prediction() {
   // Creating a HOG descriptor variable
   cv::HOGDescriptor hogtest;
   // Assigning the default window size
-  hogtest.winSize = cv::Size(64,128);
+  hogtest.winSize = cv::Size(64, 128);
   // Assigning the default cell size
   hogtest.cellSize = cv::Size(8, 8);
   // Setting the SVMDetector part of cv::HOGDescriptor class used for detection
@@ -37,8 +37,8 @@ void Testing::prediction() {
   hogtest.detectMultiScale(image, detections);
 
   // Here a bounding box is being created around the Detected human
-  for ( auto j: detections) {
-    rectangle(image, j, Scalar( 0, 255, 0 ), 2 );
+  for (auto j : detections) {
+    rectangle(image, j, Scalar(0, 255, 0), 2);
   }
   imshow( "testing trained detector on negative images", image);
   waitKey(0);

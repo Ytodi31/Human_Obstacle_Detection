@@ -1,9 +1,20 @@
+/**
+ * @copyright Copyright (c) Fall 2019 ENPM808X
+ *            This project is released under the BSD 3-Clause License
+ *
+ * @file testImageReaderHelper.cpp
+ * @brief Test file for ImageReaderHelper.cpp
+ *
+ * It contains the tests for methods of ImageReaderHelper class
+ *
+ * @author Yashaarth Todi
+ * @author Chinmay Joshi
+ * @author Sandra Tinta
+ *
+ * @date 10-20-2019
+ */
 #include <gtest/gtest.h>
 #include <../include/ImageReaderHelper.h>
-
-
-
-// Unit test of class ImageReaderHelper
 
 TEST(ReadImages, ReadImagesTest) {
   // Check if the images were read

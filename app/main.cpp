@@ -27,11 +27,11 @@
  * @return integer 0
  */
 int main() {
-	// HumanDetect HD;
-	// HD.ImageProcessingHelperClass();
-	Training SVMClassifier;
-	SVMClassifier.getTrainClassifier();
-	Testing tester;
-	tester.prediction();
+  // HumanDetect HD;
+  // HD.ImageProcessingHelperClass();
+  Training SVMClassifier;
+  SVMClassifier.getTrainClassifier();
+  Testing tester;
+  tester.prediction();
   return 0;
 }

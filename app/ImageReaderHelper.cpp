@@ -27,7 +27,7 @@
 void ImageReaderHelper::ReadImages(cv::String ImgsDir) {
   // Generate a list of all files that match the globbing pattern
   cv::glob(ImgsDir, imageLabels);
-  for (size_t i = 0; i<imageLabels.size() ; i++ ) {
+  for (size_t i = 0; i < imageLabels.size(); i++) {
       cv::Mat image = cv::imread(imageLabels[i]);
       classifierImages.push_back(image);
       // Creating string of textfile name using image name from imageLabels var

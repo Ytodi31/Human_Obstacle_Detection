@@ -45,7 +45,7 @@ void Training::getTrainClassifier() {
   // the ImageProcessingHelper class
   imgProc.RegionInterest(posPath);
   // Running a loop over all the positive images in the folder
-  for (auto img: imgProc.roiTraining) {
+  for (auto img : imgProc.roiTraining) {
     // converting to gray scale
     cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY);
     // extracting the HOG features
@@ -63,16 +63,18 @@ void Training::getTrainClassifier() {
   std::vector <cv::Mat> tempNegImages = imgReader.classifierImages;
   std::vector <cv::Mat> negImages;
   cv::Rect box;
-  for (auto img:tempNegImages) {
+  for (auto img : tempNegImages) {
     int imageHeight = img.rows;
     int imageWidth = img.cols;
-    box = cv::Rect(int(imageWidth/4), int(imageHeight/4), int(imageHeight/2), int(imageHeight/2));
+    box = cv::Rect(static_cast<int>(imageWidth/4),
+     static_cast<int>(imageHeight/4), static_cast<int>(imageHeight/2),
+     static_cast<int>(imageHeight/2));
     cv::Mat croppedImage = img(box);
     croppedImage = imgProc.ReSizeImg(croppedImage);
     negImages.push_back(croppedImage);
   }
 
-  for (auto img: negImages) {
+  for (auto img : negImages) {
     cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY);
     hog.compute(gray, descriptors);
     cv::normalize(descriptors, descriptors);
@@ -81,9 +83,10 @@ void Training::getTrainClassifier() {
   }
 
   // Creating row variable to make sure the format for ML algorithm is followed
-  const int rows = (int)(features.size());
+  const int rows = static_cast<int>(features.size());
   // Creating col variable to make sure the format for ML algorithm is followed
-  const int cols = (int)(std::max(features[0].cols, features[0].rows));
+  const int cols = static_cast<int>(std::max(features[0].cols,
+    features[0].rows));
   // Creating a temporary matrix which will be used if the format isn't
   // satisfied and it has to be of type CV_32FC1
   cv::Mat temp(1, cols, CV_32FC1);
@@ -93,17 +96,17 @@ void Training::getTrainClassifier() {
 
   // Looping over features which holds the features
   unsigned int i = 0;
-  for (auto j: features) {
+  for (auto j : features) {
     // Checking if column of features is 1
     if (features[i].cols == 1) {
       // Taking the transpose
       transpose(features[i], temp);
       // Adding it to Train matrix
-      temp.copyTo(trainMat.row(int(i)));
+      temp.copyTo(trainMat.row(static_cast<int>(i)));
     }
     // If it is in the right format the directly add to Train matrix
     else if (features[i].rows == 1) {
-      features[i].copyTo(trainMat.row(int(i)));
+      features[i].copyTo(trainMat.row(static_cast<int>(i)));
     }
     // Used to acces the index of features vector
     i = i + 1;

@@ -19,7 +19,7 @@
 
 ImageReaderHelper imgReadHelp;
 
-//Instantitating member of class
+// Instantitating member of class
 cv::Mat ImageProcessingHelper::localImage;
 std::vector<cv::Mat> ImageProcessingHelper::roiTraining;
 
@@ -28,7 +28,7 @@ std::vector<cv::Mat> ImageProcessingHelper::roiTraining;
  * @param Matrix, the image to be cropped
  * @return Matrix, cropped image
  */
- cv::Mat ImageProcessingHelper::ReSizeImg(cv::Mat image) {
+  cv::Mat ImageProcessingHelper::ReSizeImg(cv::Mat image) {
   cv::resize(image, image, cv::Size(64, 128));
   return image;
 }
@@ -47,13 +47,13 @@ void ImageProcessingHelper::RegionInterest(cv::String path) {
   std::array <char, 5> text = {"(),"};
   // Deleting unwanted text from textfile to access annotations for ROI
   std::vector <std::string> deleteline{"Bounding", "box", "for", "object", "1",
-  "2", "3", "4", "5", "6", "7","8", "9", "10","11", "12", "13", "14", "15",
-  "(Xmin,", "Ymin)", "-", "(Xmax,", "Ymax)", ",",
+  "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12", "13", "14", "15",
+  "(Xmin,", "Ymin)", "-", "(Xmax," , "Ymax)", ",",
   ":", "\"PASperson\""};
   // variable to access address to modify values, accomodation for using
   // range-based loop
   int a = 0;
-  for (auto b: trainingImages) {
+  for (auto b : trainingImages) {
   // Local variable containing cooridnates for region of interest
   cv::Rect box;
   std::stringstream out;
@@ -78,14 +78,14 @@ void ImageProcessingHelper::RegionInterest(cv::String path) {
     while (out >> word1) {
       int j = 0;
       // Checks for characters that need to be deleted in the string word1
-      for (auto i: deleteline) {
+      for (auto i : deleteline) {
         if (word1 == deleteline[j])
           break;
         // Checks if all the characters in variable deleteline are checked,
         // saves coordinates
         if (j == 26) {
           std::string str = word1;
-          for(auto a: text)
+          for (auto a : text)
             str.erase(std::remove(str.begin(), str.end(), a), str.end());
           // Converting string to integer
           int num = std::stoi(str);
@@ -108,7 +108,7 @@ void ImageProcessingHelper::RegionInterest(cv::String path) {
     for (unsigned int i = 0; i < numObjects; i++) {
       for (int j = 0; j < 4; j++) {
         boxCoordinates.at(i).at(j) = coordinates.at(index);
-    		index +=1;
+        index +=1;
         roi.push_back(boxCoordinates.at(i).at(j));
       }
       boxCoordinates.at(i).at(2) = boxCoordinates.at(i).at(2)-
@@ -117,7 +117,7 @@ void ImageProcessingHelper::RegionInterest(cv::String path) {
       boxCoordinates.at(i).at(1);
       // Defining a rectangular box with opencv  using extracted coordinates
       box = cv::Rect(boxCoordinates.at(i).at(0), boxCoordinates.at(i).at(1),
-                      boxCoordinates.at(i).at(2),boxCoordinates.at(i).at(3));
+                      boxCoordinates.at(i).at(2), boxCoordinates.at(i).at(3));
       // Crooping the region of interest in the TRaining image
       croppedImage = localImage(box);
       // Normalising image for contrast normalisation of pixel to neutralize

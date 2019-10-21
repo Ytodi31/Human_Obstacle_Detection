@@ -26,13 +26,13 @@
  * @param none
  * @return none
  */
- void HumanDetect::ImageProcessingHelperClass() {
-   ImageProcessingHelper imgProcHelp;
-   ImageReaderHelper imgReadHelp;
-   cv::Mat image = imgReadHelp.ReadCameraImg();
-   image = imgProcHelp.ResizeImg(image);
-   image = imgProcHelp.ProcessImg(image);
-   cv::imshow( "image", image);
-   cv::waitKey(0);
-   cv::destroyAllWindows();
+  void HumanDetect::ImageProcessingHelperClass() {
+  ImageProcessingHelper imgProcHelp;
+  ImageReaderHelper imgReadHelp;
+  cv::Mat image = imgReadHelp.ReadCameraImg();
+  image = imgProcHelp.ResizeImg(image);
+  image = imgProcHelp.ProcessImg(image);
+  cv::imshow("image", image);
+  cv::waitKey(0);
+  cv::destroyAllWindows();
  }
