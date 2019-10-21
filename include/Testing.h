@@ -25,13 +25,17 @@
 #include <../include/opencv2/highgui/highgui.hpp>
 #include <../include/opencv2/ml.hpp>
 #include <Classifier.h>
-#include "opencv2/objdetect.hpp"
+#include <opencv2/objdetect.hpp>
 
 class Testing: public Classifier {
 public:
-  cv::Mat response;
-
+  /**
+    * @brief Initializes the testing of the classifier
+    * @param none
+    * @return none
+    */
   void prediction();
+
 };
 
 #endif /* APP_TESTING_HPP_ */

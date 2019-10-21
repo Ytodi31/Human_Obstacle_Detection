@@ -13,42 +13,34 @@
  *
  * @date 10-20-2019
  */
-
+#include <Classifier.h>
 #include <Testing.h>
 
-void Testing::prediction() {
-  ImageProcessingHelper imgProc;
-  ImageReaderHelper imgReader;
-  std::vector <cv::Mat> gradientList;
-  std::vector <float> descriptors;
-  std::vector <cv::Point> locations;
-  cv::Mat gray;
-  std::vector <cv::Mat> testImages;
-  cv::String path = "/home/ytodi31/INRIAPerson/Test/pos/*.png";
-  imgProc.RegionInterest(path);
-  for (auto img: imgProc.roiTraining) {
-    cv::Mat croppedImage = imgProc.ReSizeImg(img);
-    testImages.push_back(croppedImage);
-  }
-  for (auto img: testImages) {
-    cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY);
-    hog.compute(gray, descriptors, cv::Size(0, 0), cv::Size(0, 0), locations);
-    gradientList.push_back(cv::Mat(descriptors).clone());
-  }
+using namespace cv;
 
-  const int rows = (int)(gradientList.size());
-  const int cols = (int)(std::max(gradientList[0].cols, gradientList[0].rows));
-  cv::Mat temp(1, cols, CV_32FC1), testData(rows, cols, CV_32FC1);
-  for (unsigned int index = 0; index < gradientList.size(); index++) {
-      if (gradientList[index].cols == 1) {
-          transpose(gradientList[index], temp);
-          temp.copyTo(testData.row(int(index)));
-      } else if (gradientList[index].rows == 1) {
-          gradientList[index].copyTo(testData.row(int(index)));
-      }
+void Testing::prediction() {
+  // Creating a HOG descriptor variable
+  cv::HOGDescriptor hogtest;
+  // Assigning the default window size
+  hogtest.winSize = cv::Size(64,128);
+  // Assigning the default cell size
+  hogtest.cellSize = cv::Size(8, 8);
+  // Setting the SVMDetector part of cv::HOGDescriptor class used for detection
+  hogtest.setSVMDetector(getHogDescriptors());
+  cv::Mat image = cv::imread("/home/ytodi31/INRIAPerson/Test/pos/crop001504.png");
+
+  // Creating a vector which will hold the region where the Human is if a Human
+  // is detected
+  std::vector< cv::Rect > detections;
+
+  // This function checks for Human
+  hogtest.detectMultiScale(image, detections);
+
+  // Here a bounding box is being created around the Detected human
+  for ( auto j: detections) {
+    rectangle(image, j, Scalar( 0, 255, 0 ), 2 );
   }
-std::cout << gradientList.size() << std::endl;
-std::cout << testData.size() << std::endl;
-classifier->predict(testData, response);
-std::cout << response.size() << std::endl;
+  imshow( "testing trained detector on negative images", image);
+  waitKey(0);
+  destroyAllWindows();
 }

@@ -29,7 +29,7 @@ std::vector<cv::Mat> ImageProcessingHelper::roiTraining;
  * @return Matrix, cropped image
  */
  cv::Mat ImageProcessingHelper::ReSizeImg(cv::Mat image) {
-  cv::resize(image, image, cv::Size(100, 100));
+  cv::resize(image, image, cv::Size(64, 128));
   return image;
 }
 
