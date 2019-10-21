@@ -32,9 +32,8 @@ cv::Ptr<cv::ml::SVM> Classifier::classifier = cv::ml::SVM::create();
 void Classifier::setClassifier() {
   // Sets the SVM parameters
   classifier->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER + cv::TermCriteria::EPS, 1000, 1e-3));
-  classifier->setKernel(cv::ml::SVM::POLY);
+  classifier->setKernel(cv::ml::SVM::LINEAR);
   classifier->setNu( 0.5 );
-  classifier->setC( 0.01 );
   classifier->setType(cv::ml::SVM::ONE_CLASS);
   cout << "Class Train has been Initialized" << endl;
 }
