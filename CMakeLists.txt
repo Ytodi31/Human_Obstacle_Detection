@@ -8,11 +8,9 @@ option(COVERAGE "Generate Coverage Data" ON)
 
 if (COVERAGE)
     include(CodeCoverage)
-	set(LCOV_REMOVE_EXTRA "'vendor/*'")
+	 set(LCOV_REMOVE_EXTRA "'vendor/*'")
     setup_target_for_coverage(code_coverage test/cpp-test coverage)
-    set(COVERAGE_SRCS app/main.cpp app/ImageProcessingHelper.cpp
-    app/ImageReaderHelper.cpp app/Classifier.cpp app/Training.cpp
-    app/Testing.cpp app/HumanDetection.cpp
+    set(COVERAGE_SRCS app/main.cpp 
     include/ImageReaderHelper.h include/ImageProcessingHelper.h
     include/Training.h include/Classifier.h include/Testing.h include/HumanDetection.h)
 
