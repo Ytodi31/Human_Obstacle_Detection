@@ -1,5 +1,5 @@
 add_executable(shell-app main.cpp ImageReaderHelper.cpp ImageProcessingHelper.cpp
-Training.cpp Testing.cpp Classifier.cpp)
+Training.cpp Testing.cpp Classifier.cpp HumanDetection.cpp)
 
 include_directories(
     ${CMAKE_SOURCE_DIR}/include
