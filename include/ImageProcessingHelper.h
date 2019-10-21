@@ -48,20 +48,6 @@ class ImageProcessingHelper {
 
   cv::Mat ReSizeImg(cv::Mat image);
 
-  /**
-    * @brief DenoiseImg, denoising image using camera calibration parameters
-    * @param none
-    * @return Matrix, containing output denoised image
-    */
-  cv::Mat DenoiseImg();
-
-  /**
-    * @brief ProcessImg,process image for training
-    * @param none
-    * @return Matrix, containing output processed image
-    */
-  cv::Mat ProcessImg();
-
 };
 
 #endif /* APP_IMAGEPROCESSINGHELPER_HPP_ */
