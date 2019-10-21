@@ -8,14 +8,16 @@ cmake_minimum_required(VERSION 3.1)
 # Add project cmake modules to path.
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake)
 
-# We probably don't want this to run on every build.
-option(COVERAGE "Generate Coverage Data" OFF)
+option(COVERAGE "Generate Coverage Data" ON)
 
 if (COVERAGE)
     include(CodeCoverage)
-    set(LCOV_REMOVE_EXTRA "'vendor/*'")
+	 set(LCOV_REMOVE_EXTRA "'vendor/*'")
     setup_target_for_coverage(code_coverage test/cpp-test coverage)
-    set(COVERAGE_SRCS app/main.cpp include/lib.hpp)
+    set(COVERAGE_SRCS app/main.cpp 
+    include/ImageReaderHelper.h include/ImageProcessingHelper.h
+    include/Training.h include/Classifier.h include/Testing.h include/HumanDetection.h)
+
 
     SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
     SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
@@ -24,27 +26,7 @@ else()
     set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wpedantic -g")
 endif()
 
-
-SET(CMAKE_CXX_FLAGS "-DENABLE_PRECOMPILED_HEADERS=OFF")
-
-# Define project name
-project(scratch)
-
-# Find OpenCV, you may need to set OpenCV_DIR variable
-# to the absolute path to the directory containing OpenCVConfig.cmake file
-# via the command line or GUI
 find_package(OpenCV REQUIRED)
-
-# If the package has been found, several variables will
-# be set, you can find the full list with descriptions
-# in the OpenCVConfig.cmake file.
-# Print some message showing some of them
-message(STATUS "OpenCV library status:")
-message(STATUS "    config: ${OpenCV_DIR}")
-message(STATUS "    version: ${OpenCV_VERSION}")
-message(STATUS "    libraries: ${OpenCV_LIBS}")
-message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
-
 
 include(CMakeToolsHelpers OPTIONAL)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

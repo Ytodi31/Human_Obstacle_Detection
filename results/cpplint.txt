@@ -1,0 +1,12 @@
+Done processing ./test/main.cpp
+Done processing ./test/testImageProcessingHelper.cpp
+Done processing ./test/testTrainingClass.cpp
+Done processing ./test/testTestingClass.cpp
+Done processing ./test/testImageReaderHelper.cpp
+Done processing ./app/Training.cpp
+Done processing ./app/ImageProcessingHelper.cpp
+Done processing ./app/main.cpp
+Done processing ./app/Classifier.cpp
+Done processing ./app/Testing.cpp
+Done processing ./app/ImageReaderHelper.cpp
+Done processing ./app/HumanDetection.cpp
