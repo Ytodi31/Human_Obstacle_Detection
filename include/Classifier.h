@@ -32,8 +32,9 @@
 class Classifier {
  public:
 
-  cv::Ptr<cv::ml::SVM> classifier;
-  cv::HOGDescriptor hog;
+  static cv::Ptr<cv::ml::SVM> classifier;
+
+  static std::vector <float> hogDetector;
 
   /**
     * @brief Initializes the svm parameters
@@ -43,11 +44,11 @@ class Classifier {
   void setClassifier();
 
   /**
-    * @brief Gets the HOG features of images
+    * @brief Gets the HOG descriptors needed for detection
     * @param none
-    * @return none
+    * @return a vector of type float which holds the hog descriptors
     */
-  void getHogFeatures();
+  std::vector <float> getHogDescriptors();
 
 };
 

@@ -19,17 +19,40 @@
 using std::cout;
 using std::endl;
 
-void Classifier::setClassifier() {
-  classifier = cv::ml::SVM::create();
-  classifier->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER + cv::TermCriteria::EPS, 1000, 0.001));
-  classifier->setKernel(cv::ml::SVM::LINEAR);
-  classifier->setC(10);
-  classifier->setType(cv::ml::SVM::C_SVC);
-  cout << "Class Train has been Initialized" << endl;
+/**
+ * @brief classifier variable which will be used by Training and Testing class
+ */
+cv::Ptr<cv::ml::SVM> Classifier::classifier = cv::ml::SVM::create();
 
+/**
+ * @brief Sets the Parameters of the SVM classifier,
+ * @param none
+ * @return none
+ */
+void Classifier::setClassifier() {
+  // Sets the SVM parameters
+  classifier->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER + cv::TermCriteria::EPS, 1000, 1e-3));
+  classifier->setKernel(cv::ml::SVM::POLY);
+  classifier->setNu( 0.5 );
+  classifier->setC( 0.01 );
+  classifier->setType(cv::ml::SVM::ONE_CLASS);
+  cout << "Class Train has been Initialized" << endl;
 }
 
-void Classifier::getHogFeatures() {
-  hog.winSize = cv::Size(64, 128);
-  hog.cellSize = cv::Size(8, 8);
+/**
+ * @brief Gets the HOG descriptors which are used for Human Detection
+ * @param none
+ * @return a vector of type floar which has the descriptors
+ */
+std::vector <float> Classifier::getHogDescriptors() {
+  // Gets the support vectors of the classifier which are need for detection
+  cv::Mat svm = classifier->getSupportVectors();
+  cv::Mat alpha, svidx;
+  double rho = classifier->getDecisionFunction(0, alpha, svidx);
+
+  // vector to store the hog descriptors
+  std::vector <float> hogFeatures(svm.cols + 1);
+  memcpy(&hogFeatures[0], svm.ptr(), svm.cols*sizeof(hogFeatures[0]));
+  hogFeatures[svm.cols] = (float)-rho;
+  return hogFeatures;
 }
