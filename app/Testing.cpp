@@ -40,5 +40,5 @@ void Testing::prediction() {
   }
   cv::imshow("image", image);
   cv::waitKey(200);
-  cv::qdestroyAllWindows();
+  cv::destroyAllWindows();
 }
