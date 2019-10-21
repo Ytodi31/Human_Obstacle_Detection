@@ -22,7 +22,7 @@ ImageReaderHelper imgReadHelp;
 // Instantitating member of class
 cv::Mat ImageProcessingHelper::localImage;
 std::vector<cv::Mat> ImageProcessingHelper::roiTraining;
-
+std::vector <int> ImageProcessingHelper::roi;
 /**
  * @brief ResizeImg,resizes the image using opencv function
  * @param Matrix, the image to be cropped
