@@ -20,7 +20,7 @@
 
 TEST(ImageProcResize, testImageFrameSize) {
   ImageProcessingHelper imgProc;
-  cv::Mat image = cv::imread("/home/ytodi31/INRIAPerson/Train/pos/crop001717.png");
+  cv::Mat image = cv::imread("../INRIAPerson/Train/pos/crop001717.png");
   cv::Mat resizedImg = imgProc.ReSizeImg(image);
   ASSERT_EQ(resizedImg.rows, 128);
   ASSERT_EQ(resizedImg.cols, 64);
@@ -28,7 +28,7 @@ TEST(ImageProcResize, testImageFrameSize) {
 
 TEST(ImageProcROI, testROICoord) {
   ImageProcessingHelper imgProc;
-  cv::String path = "/home/ytodi31/INRIAPerson/Train/pos/crop001241.png";
+  cv::String path = "../INRIAPerson/Train/pos/crop001241.png";
   imgProc.RegionInterest(path);
   ASSERT_EQ(imgProc.roi[0], 216);
   ASSERT_EQ(imgProc.roi[1], 157);
