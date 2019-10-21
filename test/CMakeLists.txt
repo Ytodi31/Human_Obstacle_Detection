@@ -3,6 +3,7 @@ set(GTEST_SHUFFLE 1)
 add_executable(
     cpp-test
     main.cpp
+    testTestingClass.cpp
     testImageProcessingHelper.cpp
 	  testImageReaderHelper.cpp
 	testTrainingClass.cpp
