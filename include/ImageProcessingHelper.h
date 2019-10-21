@@ -42,10 +42,9 @@ class ImageProcessingHelper {
    * @brief localImage,variable storing the image in matrix
    */
   static cv::Mat localImage;
-
   std::vector <int> roi;
 
-  void RegionInterest(cv::String);
+  void  RegionInterest(cv::String);
 
   cv::Mat ReSizeImg(cv::Mat image);
 
