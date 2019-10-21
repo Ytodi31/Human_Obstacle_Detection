@@ -40,7 +40,7 @@ void Training::getTrainClassifier() {
   // creating a variable to hold the Gray scale Image
   cv::Mat gray;
   // Specifying the path for Training positive images
-  cv::String posPath = "/home/ytodi31/INRIAPerson/Train/pos/*.png";
+  cv::String posPath = "../INRIAPerson/Train/pos/*.png";
   // Giving the path to RegionInterest which is a part of
   // the ImageProcessingHelper class
   imgProc.RegionInterest(posPath);
@@ -58,7 +58,7 @@ void Training::getTrainClassifier() {
     labels.push_back(1);
   }
   // Specifying the path for Training negative images
-  cv::String negPath = "/home/ytodi31/INRIAPerson/Train/neg/*";
+  cv::String negPath = "../INRIAPerson/Train/neg/*";
   imgReader.ReadImages(negPath);
   std::vector <cv::Mat> tempNegImages = imgReader.classifierImages;
   std::vector <cv::Mat> negImages;
