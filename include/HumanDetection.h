@@ -17,6 +17,12 @@
  #ifndef APP_HUMANDETECTION_HPP_
  #define APP_HUMANDETECTION_HPP_
 
+ #include <Classifier.h>
+ #include <Training.h>
+ #include <Testing.h>
+ #include <ImageReaderHelper.h>
+ #include <ImageProcessingHelper.h>
+
  /**
   * @brief HumanDetect class calls ImageProcessingHelper and ImageReaderHelper
            class for Human Detection
@@ -30,14 +36,7 @@
       * @param none
       * @return none
       */
-    void ImageReaderHelperClass();
-
-    /**
-      * @brief calls the ImageProcessingHelper class
-      * @param none
-      * @return none
-      */
-    void ImageProcessingHelperClass();
+    void callAllClass();
 
   };
 

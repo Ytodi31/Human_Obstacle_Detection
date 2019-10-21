@@ -14,11 +14,6 @@
  * @date 10-18-2019
  */
 
-#include <opencv2/core.hpp>
-#include <opencv2/opencv.hpp>
-#include <opencv2/highgui.hpp>
-#include <ImageProcessingHelper.h>
-#include <ImageReaderHelper.h>
 #include <HumanDetection.h>
 
 /**
@@ -26,13 +21,9 @@
  * @param none
  * @return none
  */
-  void HumanDetect::ImageProcessingHelperClass() {
-  ImageProcessingHelper imgProcHelp;
-  ImageReaderHelper imgReadHelp;
-  cv::Mat image = imgReadHelp.ReadCameraImg();
-  image = imgProcHelp.ResizeImg(image);
-  image = imgProcHelp.ProcessImg(image);
-  cv::imshow("image", image);
-  cv::waitKey(200);
-  cv::destroyAllWindows();
+ void HumanDetect::callAllClass() {
+  Training SVMClassifier;
+  Testing tester;
+ 	SVMClassifier.getTrainClassifier();
+ 	tester.prediction();
  }
