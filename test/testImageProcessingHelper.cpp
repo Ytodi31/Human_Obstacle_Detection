@@ -31,5 +31,5 @@ TEST(ImageProcROI, testROICoord) {
   cv::String path = "../INRIAPerson/Train/pos/crop001241.png";
   imgProc.RegionInterest(path);
   unsigned int i = 0;
-  ASSERT_GT(imgProc.roi.size(), i);
+  ASSERT_EQ(imgProc.roi.size(), i);
 }
