@@ -82,6 +82,7 @@ void ImageProcessingHelper::RegionInterest(cv::String path) {
     		for (int j = 0; j < 4; j++) {
     			boxCoordinates.at(i).at(j) = line.at(index);
     			index +=1;
+          roi.push_back(boxCoordinates.at(i).at(j));
     		}
     	 boxCoordinates.at(i).at(2) = boxCoordinates.at(i).at(2)-
        boxCoordinates.at(i).at(0);

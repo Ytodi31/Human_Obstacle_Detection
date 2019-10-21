@@ -30,7 +30,7 @@ void Training::getTrainClassifier() {
   std::vector <cv::Point> locations;
     std::vector < int > labels;
   cv::Mat gray;
-  cv::String posPath = "/home/cj/Downloads/INRIAPerson/Train/pos/*.png";
+  cv::String posPath = "/home/ytodi31/INRIAPerson/Train/pos/*.png";
   imgProc.RegionInterest(posPath);
   for (auto img: imgProc.roiTraining) {
     cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY);
@@ -39,7 +39,7 @@ void Training::getTrainClassifier() {
     labels.push_back(1);
   }
 
-  cv::String negPath = "/home/cj/Downloads/INRIAPerson/Test/neg/*";
+  cv::String negPath = "/home/ytodi31/INRIAPerson/Test/neg/*";
   imgReader.ReadImages(negPath);
   std::vector <cv::Mat> tempNegImages = imgReader.classifierImages;
   std::vector <cv::Mat> negImages;
@@ -58,7 +58,6 @@ void Training::getTrainClassifier() {
     hog.compute(gray, descriptors, cv::Size(0, 0), cv::Size(0, 0), locations);
     gradientList.push_back(cv::Mat(descriptors).clone());
     labels.push_back(0);
-
   }
   std::cout << labels.size() << std::endl;
 

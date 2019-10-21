@@ -43,6 +43,8 @@ class ImageProcessingHelper {
    */
   static cv::Mat localImage;
 
+  std::vector <int> roi;
+
   void RegionInterest(cv::String);
 
   cv::Mat ReSizeImg(cv::Mat image);
