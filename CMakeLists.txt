@@ -9,10 +9,10 @@ option(COVERAGE "Generate Coverage Data" OFF)
 
 if (COVERAGE)
     include(CodeCoverage)
-    set(LCOV_REMOVE_EXTRA "'vendor/*'")
-    setup_target_for_coverage(code_coverage test/cpp-test coverage)
-    set(COVERAGE_SRCS app/main.cpp include/ImageReaderHelper.hpp 
-    							 include/ImageProcessingHelper.hpp)
+	set(LCOV_REMOVE_EXTRA "'vendor/*'")
+    setup_target_for_coverage(code_coverage test/humanDetection-test coverage)
+    set(COVERAGE_SRCS app/main.cpp include/ImageReaderHelper.h ImageProcessingHelper.h
+Training.h Classifier.h Testing.h)
 
 
     SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
@@ -21,6 +21,7 @@ if (COVERAGE)
 else()
     set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wpedantic -g")
 endif()
+
 find_package(OpenCV REQUIRED)
 
 include(CMakeToolsHelpers OPTIONAL)
@@ -30,3 +31,4 @@ set(CMAKE_CXX_STANDARD 14)
 add_subdirectory(app)
 add_subdirectory(test)
 add_subdirectory(vendor/googletest/googletest)
+
