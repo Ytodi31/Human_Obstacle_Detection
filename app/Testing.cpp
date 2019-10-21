@@ -27,7 +27,7 @@ void Testing::prediction() {
   hogtest.cellSize = cv::Size(8, 8);
   // Setting the SVMDetector part of cv::HOGDescriptor class used for detection
   hogtest.setSVMDetector(getHogDescriptors());
-  cv::Mat image = cv::imread("/home/ytodi31/INRIAPerson/Test/pos/crop001504.png");
+  cv::Mat image = cv::imread("../INRIAPerson/Test/pos/crop001504.png");
 
   // Creating a vector which will hold the region where the Human is if a Human
   // is detected
