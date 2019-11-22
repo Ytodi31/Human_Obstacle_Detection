@@ -30,7 +30,7 @@
 class ImageReaderHelper {
  public:
    ImageReaderHelper();
-   virtual ImageReaderHelper();
+   virtual ~ImageReaderHelper();
   /**
    * @brief vector of images, holding region of interest of training images
    */
