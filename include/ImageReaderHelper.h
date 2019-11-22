@@ -29,18 +29,21 @@
  */
 class ImageReaderHelper {
  public:
+   ImageReaderHelper();
+   virtual ImageReaderHelper();
   /**
-   * @brief
+   * @brief vector of images, holding region of interest of training images
    */
   std::vector <cv::Mat> classifierImages;
 
   /**
-   * @brief
+   * @brief vector of strings, holding labels of trainig images
    */
   std::vector <cv::String> imageLabels;
 
   /**
-   * @brief
+   * @brief vector of strings, holding name of text file containing annotations
+   * for images
    */
   std::vector <cv::String> textFile;
 
@@ -49,7 +52,7 @@ class ImageReaderHelper {
     * @param none
     * @return vector of Matrices, containing images
     */
-  void  ReadImages(cv::String);
+  virtual void  ReadImages(cv::String);
 };
 
 #endif /* INCLUDE_IMAGEREADERHELPER_HPP_ */
