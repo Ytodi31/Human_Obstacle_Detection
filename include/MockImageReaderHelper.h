@@ -1,4 +1,4 @@
-/**
+  /**
  * BSD 3-Clause License
  * @copyright Copyright (c) Fall 2019 ENPM808X
  *            This project is released under the BSD 3-Clause License
@@ -17,13 +17,14 @@
 
 #include "ImageReaderHelper.h"
 #include <gmock/gmock.h>
+#include <../include/opencv2/opencv.hpp>
 
 /*
  * @brief Mock class derived from mock interface
  */
 class MockImageReaderHelper: public ImageReaderHelper {
 public:
-  // Mock method for reading images 
-  MOCK_METHOD(void,ReadImages,(cv::String), (override));
+  // Mock method for reading images
+  MOCK_METHOD0(ReadImages, void());
 };
 #endif // INCLUDE_MOCKIMAGEREADERHELPER_HPP_
