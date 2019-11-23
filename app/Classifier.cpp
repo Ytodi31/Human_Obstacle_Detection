@@ -53,6 +53,6 @@ std::vector <float> Classifier::getHogDescriptors() {
   // vector to store the hog descriptors
   std::vector <float> hogFeatures(svm.cols + 1);
   memcpy(&hogFeatures[0], svm.ptr(), svm.cols*sizeof(hogFeatures[0]));
-  hogFeatures[svm.cols] = (float)-rho;
+  hogFeatures[svm.cols] = static_cast<float>(-rho);
   return hogFeatures;
 }

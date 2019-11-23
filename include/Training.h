@@ -14,8 +14,8 @@
  * @date 10-20-2019
  */
 
-#ifndef APP_TRAINING_HPP_
-#define APP_TRAINING_HPP_
+#ifndef HUMAN_OBSTACLE_DETECTION_INCLUDE_TRAINING_H_
+#define HUMAN_OBSTACLE_DETECTION_INCLUDE_TRAINING_H_
 
 #include <string>
 #include <vector>
@@ -28,7 +28,7 @@
 #include <ImageProcessingHelper.h>
 
 class Training: public Classifier {
-public:
+ public:
   /**
     * @brief Initializes the training of the classifier
     * @param none
@@ -52,7 +52,6 @@ public:
     * @brief vector of type integer to hold the labels of the data
 	*/
   static std::vector < int > labels;
-
 };
 
-#endif /* APP_TRAINING_HPP_ */
+#endif  // HUMAN_OBSTACLE_DETECTION_INCLUDE_TRAINING_H_

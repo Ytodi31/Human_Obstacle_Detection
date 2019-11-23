@@ -13,31 +13,26 @@
  *
  * @date 10-18-2019
  */
+#ifndef HUMAN_OBSTACLE_DETECTION_INCLUDE_HUMANDETECTION_H_
+#define HUMAN_OBSTACLE_DETECTION_INCLUDE_HUMANDETECTION_H_
 
- #ifndef APP_HUMANDETECTION_HPP_
- #define APP_HUMANDETECTION_HPP_
-
- #include <Classifier.h>
- #include <Training.h>
- #include <Testing.h>
- #include <ImageReaderHelper.h>
- #include <ImageProcessingHelper.h>
+#include <Classifier.h>
+#include <Training.h>
+#include <Testing.h>
+#include <ImageReaderHelper.h>
+#include <ImageProcessingHelper.h>
 
  /**
   * @brief HumanDetect class calls ImageProcessingHelper and ImageReaderHelper
            class for Human Detection
   */
-
   class HumanDetect {
-  public:
-
+   public:
     /**
       * @brief calls the ImageReaderHelper class
       * @param none
       * @return none
       */
     void callAllClass();
-
   };
-
-#endif /* APP_HUMANDETECTION_HPP_ */
+#endif  // HUMAN_OBSTACLE_DETECTION_INCLUDE_HUMANDETECTION_H_

@@ -13,9 +13,8 @@
  *
  * @date 10-15-2019
  */
-
-#ifndef INCLUDE_IMAGEREADERHELPER_HPP_
-#define INCLUDE_IMAGEREADERHELPER_HPP_
+#ifndef HUMAN_OBSTACLE_DETECTION_INCLUDE_IMAGEREADERHELPER_H_
+#define HUMAN_OBSTACLE_DETECTION_INCLUDE_IMAGEREADERHELPER_H_
 
 #include <string>
 #include <vector>
@@ -29,8 +28,8 @@
  */
 class ImageReaderHelper {
  public:
-   ImageReaderHelper();
-   virtual ~ImageReaderHelper();
+  ImageReaderHelper();
+  virtual ~ImageReaderHelper();
   /**
    * @brief vector of images, holding region of interest of training images
    */
@@ -60,4 +59,4 @@ class ImageReaderHelper {
   virtual void ReadImages();
 };
 
-#endif /* INCLUDE_IMAGEREADERHELPER_HPP_ */
+#endif  // HUMAN_OBSTACLE_DETECTION_INCLUDE_IMAGEREADERHELPER_H_

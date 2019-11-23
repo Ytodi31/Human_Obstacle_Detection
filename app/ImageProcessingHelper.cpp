@@ -43,7 +43,6 @@ void ImageProcessingHelper::RegionInterest(ImageReaderHelper& imgReadHelp) {
   imgReadHelp.ReadImages();
   roi.clear();
   std::vector< cv::Mat>trainingImages = imgReadHelp.classifierImages;
-  std::string name = "Center point on object";
   // Setting unwanted characters to be deleted from text file
   std::array <char, 5> text = {"(),"};
   // Deleting unwanted text from textfile to access annotations for ROI

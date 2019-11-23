@@ -15,13 +15,13 @@
  */
 
 #include <../include/ImageReaderHelper.h>
-    std::vector <cv::Mat> classifierImages;
-    std::vector <cv::String> imageLabels;
-    std::vector <cv::String> textFile;
-    cv::String ImgsDir;
+std::vector <cv::Mat> classifierImages;
+std::vector <cv::String> imageLabels;
+std::vector <cv::String> textFile;
+cv::String ImgsDir;
 
- ImageReaderHelper::ImageReaderHelper() {}
- ImageReaderHelper::~ImageReaderHelper() {}
+ImageReaderHelper::ImageReaderHelper() {}
+ImageReaderHelper::~ImageReaderHelper() {}
 
  /**
   * @brief ReadTrainingImgs,reads images from a directory using opencv function

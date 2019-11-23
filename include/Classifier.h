@@ -14,8 +14,8 @@
  * @date 10-20-2019
  */
 
-#ifndef APP_CLASSIFIER_HPP_
-#define APP_CLASSIFIER_HPP_
+#ifndef HUMAN_OBSTACLE_DETECTION_INCLUDE_CLASSIFIER_H_
+#define HUMAN_OBSTACLE_DETECTION_INCLUDE_CLASSIFIER_H_
 
 #include <string>
 #include <vector>
@@ -31,7 +31,6 @@
 
 class Classifier {
  public:
-
   static cv::Ptr<cv::ml::SVM> classifier;
 
   static std::vector <float> hogDetector;
@@ -49,7 +48,6 @@ class Classifier {
     * @return a vector of type float which holds the hog descriptors
     */
   std::vector <float> getHogDescriptors();
-
 };
 
-#endif /*  APP_CLASSIFIER_HPP_ */
+#endif  // HUMAN_OBSTACLE_DETECTION_INCLUDE_CLASSIFIER_H_

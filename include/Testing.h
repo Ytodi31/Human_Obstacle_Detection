@@ -14,8 +14,8 @@
  * @date 10-20-2019
  */
 
-#ifndef APP_TESTING_HPP_
-#define APP_TESTING_HPP_
+#ifndef HUMAN_OBSTACLE_DETECTION_INCLUDE_TESTING_H_
+#define HUMAN_OBSTACLE_DETECTION_INCLUDE_TESTING_H_
 
 #include <string>
 #include <vector>
@@ -28,14 +28,13 @@
 #include <opencv2/objdetect.hpp>
 
 class Testing: public Classifier {
-public:
+ public:
   /**
     * @brief Initializes the testing of the classifier
     * @param none
     * @return none
     */
   void prediction();
-
 };
 
-#endif /* APP_TESTING_HPP_ */
+#endif  // HUMAN_OBSTACLE_DETECTION_INCLUDE_TESTING_H_

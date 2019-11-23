@@ -11,19 +11,18 @@
  *
  * @date 11-22-2019
  */
- #include <gtest/gtest.h>
- #include <gmock/gmock.h>
- #include <../include/opencv2/opencv.hpp>
+#include <gtest/gtest.h>
+#include <gmock/gmock.h>
+#include <../include/opencv2/opencv.hpp>
 
- #include "MockImageReaderHelper.h"
- #include "ImageProcessingHelper.h"
- #include "ImageReaderHelper.h"
+#include "MockImageReaderHelper.h"
+#include "ImageProcessingHelper.h"
+#include "ImageReaderHelper.h"
 
- TEST(MockReaderTest, ReaderImagesMockTest) {
-   MockImageReaderHelper reader;
-   //ImageReaderHelper imgRead;
-   ImageProcessingHelper processor;
-   reader.ImgsDir = "../INRIAPerson/Train/pos/crop001001.png";
-   EXPECT_CALL(reader,ReadImages()).Times(1);
-   processor.RegionInterest(reader);
- }
+TEST(MockReaderTest, ReaderImagesMockTest) {
+  MockImageReaderHelper reader;
+  ImageProcessingHelper processor;
+  reader.ImgsDir = "../INRIAPerson/Train/pos/crop001001.png";
+  EXPECT_CALL(reader, ReadImages()).Times(1);
+  processor.RegionInterest(reader);
+}
