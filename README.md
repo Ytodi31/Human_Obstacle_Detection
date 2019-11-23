@@ -145,6 +145,15 @@ doxygen Human_Obstacle_Detection.doxyfile
 ```
 
 ## GMock
-The class being mocked is ImageReaderHelper class. The implementation has been slightly modified from the main branch,to make the class a viable candidate for GMock Testing. Class ImageProcessingHelper ia tested, which consumes the ImageReaderClass. The test checks if the mocked class functions are called by the dependent class.  
+The class being mocked is ImageReaderHelper class. The implementation has been slightly modified from the main branch,to make the class a viable candidate for GMock Testing. Class ImageProcessingHelper is tested, which consumes the ImageReaderClass. The test checks if the mocked class functions are called by the dependent class.\
+To only clone this branch, run :\
+```
+git clone -b GMock_Extra_Credit_ytodi --single-branch https://github.com/Ytodi31/Human_Obstacle_Detection
+cd <path to repository>
+mkdir build
+cd build
+cmake ..
+make
+```
 To run GMock test :\
-`Run tests: ./test/cpp-test`\
+`Run tests: ./test/cpp-test`
