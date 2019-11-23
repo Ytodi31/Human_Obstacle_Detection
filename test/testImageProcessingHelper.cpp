@@ -28,8 +28,9 @@ TEST(ImageProcResize, testImageFrameSize) {
 
 TEST(ImageProcROI, testROICoord) {
   ImageProcessingHelper imgProc;
-  cv::String path = "../INRIAPerson/Train/pos/crop001241.png";
-  imgProc.RegionInterest(path);
-  unsigned int i = 0;
+  ImageReaderHelper reader;
+  reader.ImgsDir = "../INRIAPerson/Train/pos/crop001241.png";
+  imgProc.RegionInterest(reader);
+  unsigned int i = 4;
   ASSERT_EQ(imgProc.roi.size(), i);
 }
