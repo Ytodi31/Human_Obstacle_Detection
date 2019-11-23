@@ -24,6 +24,8 @@
 #include <../include/opencv2/highgui/highgui.hpp>
 #include <../include/opencv2/ml.hpp>
 #include <Classifier.h>
+#include <ImageReaderHelper.h>
+#include <ImageProcessingHelper.h>
 
 class Training: public Classifier {
 public:
@@ -48,7 +50,7 @@ public:
 
   /**
     * @brief vector of type integer to hold the labels of the data
-	*/ 
+	*/
   static std::vector < int > labels;
 
 };
