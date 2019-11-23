@@ -30,24 +30,41 @@
 #include <../include/opencv2/opencv.hpp>
 #include <../include/opencv2/highgui/highgui.hpp>
 
+#include"ImageReaderHelper.h"
+
 /**
  * @brief ImageProcessingHelper class pre-processes images for training
  */
 class ImageProcessingHelper {
  public:
-
+   /**
+    * @brief vector, holding all the images for training after processing
+    */
   static std::vector<cv::Mat> roiTraining;
 
   /**
    * @brief localImage,variable storing the image in matrix
    */
   static cv::Mat localImage;
+
+  /**
+   * @brief vector, holding temporary corrdinates of ROI
+   */
   static std::vector <int> roi;
 
-  void  RegionInterest(cv::String);
+  /**
+   * @brief Function, to extract the region on intrest for training
+   * @param Address of class ImageReaderHelper
+   * return none
+   */
+  void  RegionInterest(ImageReaderHelper &);
 
+  /**
+   * @brief Function, to resize the image
+   * @param Image to be resized
+   * return resized image
+   */
   cv::Mat ReSizeImg(cv::Mat image);
-
 };
 
 #endif /* APP_IMAGEPROCESSINGHELPER_HPP_ */
