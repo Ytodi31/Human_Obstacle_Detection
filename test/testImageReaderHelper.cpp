@@ -19,7 +19,8 @@
 TEST(ReadImages, ReadImagesTest) {
   // Check if the images were read
   ImageReaderHelper test;
-  test.ReadImages("../INRIAPerson/Train/pos/*.png");
+  test.ImgsDir = "../INRIAPerson/Train/pos/*.png";
+  test.ReadImages();
   unsigned int i = 0;
 
   ASSERT_GT(test.classifierImages.size(), i);
@@ -28,7 +29,8 @@ TEST(ReadImages, ReadImagesTest) {
 TEST(LoadImages, LoadImagesTest) {
   // Check if all the images have been loaded
   ImageReaderHelper test;
+  test.ImgsDir = "../INRIAPerson/Train/neg/*";
   unsigned int i = 1218;
-  test.ReadImages("../INRIAPerson/Train/neg/*");
+  test.ReadImages();
   ASSERT_EQ(test.classifierImages.size(), i);
 }
