@@ -36,11 +36,12 @@ std::vector <int> ImageProcessingHelper::roi;
 /**
  * @brief Extracts region of interest by extracting annotations from textFile
  * creating a bounding box for cropping and resizing
- * @param String, containing the path of images
+ * @param Class of type ImageReaHelper which reads images
  * @return none
  */
-void ImageProcessingHelper::RegionInterest(cv::String path) {
-  imgReadHelp.ReadImages(path);
+void ImageProcessingHelper::RegionInterest(ImageReaderHelper& imgReadHelp) {
+  imgReadHelp.ReadImages();
+  roi.clear();
   std::vector< cv::Mat>trainingImages = imgReadHelp.classifierImages;
   std::string name = "Center point on object";
   // Setting unwanted characters to be deleted from text file
@@ -120,9 +121,6 @@ void ImageProcessingHelper::RegionInterest(cv::String path) {
                       boxCoordinates.at(i).at(2), boxCoordinates.at(i).at(3));
       // Crooping the region of interest in the TRaining image
       croppedImage = localImage(box);
-      // Normalising image for contrast normalisation of pixel to neutralize
-      // lighting conditions
-      cv::normalize(croppedImage, croppedImage, 0, 1, cv::NORM_MINMAX);
       // Creating a vector of images (resized with ROI extracted) for training
       roiTraining.push_back(ReSizeImg(croppedImage));
     }

@@ -18,21 +18,26 @@
     std::vector <cv::Mat> classifierImages;
     std::vector <cv::String> imageLabels;
     std::vector <cv::String> textFile;
+    cv::String ImgsDir;
 
-/**
- * @brief ReadTrainingImgs,reads images from a directory using opencv function
- * @param String variable, containing path of directory
- * @return none
- */
-void ImageReaderHelper::ReadImages(cv::String ImgsDir) {
+ ImageReaderHelper::ImageReaderHelper() {}
+ ImageReaderHelper::~ImageReaderHelper() {}
+
+ /**
+  * @brief ReadTrainingImgs,reads images from a directory using opencv function
+  * @param String variable, containing path of directory
+  * @return none
+  */
+void ImageReaderHelper::ReadImages() {
   // Generate a list of all files that match the globbing pattern
-  cv::glob(ImgsDir, imageLabels);
+  classifierImages.clear();
+  cv::glob(ImageReaderHelper::ImgsDir, imageLabels);
   for (size_t i = 0; i < imageLabels.size(); i++) {
       cv::Mat image = cv::imread(imageLabels[i]);
       classifierImages.push_back(image);
       // Creating string of textfile name using image name from imageLabels var
       cv::String newfilename = imageLabels[i].substr(0,
-        imageLabels[i].find('.'))+ ".txt";
+        imageLabels[i].find_last_of('.'))+ ".txt";
       textFile.push_back(newfilename);
     }
 }

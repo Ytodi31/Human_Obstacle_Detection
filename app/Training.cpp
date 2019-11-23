@@ -40,10 +40,10 @@ void Training::getTrainClassifier() {
   // creating a variable to hold the Gray scale Image
   cv::Mat gray;
   // Specifying the path for Training positive images
-  cv::String posPath = "../INRIAPerson/Train/pos/*.png";
+  imgReader.ImgsDir = "../INRIAPerson/Train/pos/*.png";
   // Giving the path to RegionInterest which is a part of
   // the ImageProcessingHelper class
-  imgProc.RegionInterest(posPath);
+  imgProc.RegionInterest(imgReader);
   // Running a loop over all the positive images in the folder
   for (auto img : imgProc.roiTraining) {
     // converting to gray scale
@@ -58,9 +58,10 @@ void Training::getTrainClassifier() {
     labels.push_back(1);
   }
   // Specifying the path for Training negative images
-  cv::String negPath = "../INRIAPerson/Train/neg/*";
-  imgReader.ReadImages(negPath);
+  imgReader.ImgsDir = "../INRIAPerson/Train/neg/*";
+  imgReader.ReadImages();
   std::vector <cv::Mat> tempNegImages = imgReader.classifierImages;
+
   std::vector <cv::Mat> negImages;
   cv::Rect box;
   for (auto img : tempNegImages) {
