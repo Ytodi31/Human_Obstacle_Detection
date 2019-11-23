@@ -143,3 +143,8 @@ Installing doxygen:
 ```
 doxygen Human_Obstacle_Detection.doxyfile
 ```
+
+## GMock
+The class being mocked is ImageReaderHelper class. The implementation has been slightly modified from the main branch,to make the class a viable candidate for GMock Testing. Class ImageProcessingHelper ia tested, which consumes the ImageReaderClass. The test checks if the mocked class functions are called by the dependent class.  
+To run GMock test :\
+`Run tests: ./test/cpp-test`\
