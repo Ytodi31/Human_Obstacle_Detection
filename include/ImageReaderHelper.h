@@ -37,6 +37,11 @@ class ImageReaderHelper {
   std::vector <cv::Mat> classifierImages;
 
   /**
+   * @brief String, containing the images directory loction
+   */
+  cv::String ImgsDir;
+
+  /**
    * @brief vector of strings, holding labels of trainig images
    */
   std::vector <cv::String> imageLabels;
@@ -48,11 +53,11 @@ class ImageReaderHelper {
   std::vector <cv::String> textFile;
 
   /**
-    * @brief ReadTrainingImgs, reads the training set of images
+    * @brief ReadImages, reads the training set of images
     * @param none
-    * @return vector of Matrices, containing images
+    * @return none
     */
-  virtual void  ReadImages(cv::String);
+  virtual void ReadImages();
 };
 
 #endif /* INCLUDE_IMAGEREADERHELPER_HPP_ */
